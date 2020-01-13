@@ -89,7 +89,7 @@ class ExcelController extends Controller
         $isValid = false;
         $strRealPath = realpath($path);
 
-        if (strpos($strRealPath, base_path().'/storage') === 0) {
+        if (strpos($strRealPath, env('LARAVEL_EXCEL_BASE_PATH',base_path().'/storage')) === 0) {
             $isValid = true;
         }
         return  $isValid;
