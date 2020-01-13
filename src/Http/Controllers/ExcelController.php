@@ -51,7 +51,7 @@ class ExcelController extends Controller
         $canAccess = true;
         $pathInfo = pathinfo($request->input('filename'));
 
-        if (!$this->validadePath($request->input('path'))) {
+        if (!$this->validatePath($request->input('path'))) {
             $canAccess = false;
         }
         if ($canAccess) {
@@ -84,7 +84,7 @@ class ExcelController extends Controller
      * @param string $path
      * @return boolean
      */
-    protected function validadePath(string $path): bool
+    protected function validatePath(string $path): bool
     {
         $isValid = false;
         $strRealPath = realpath($path);
